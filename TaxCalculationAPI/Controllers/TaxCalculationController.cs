@@ -18,14 +18,11 @@ namespace TaxCalculationAPI.Controllers
         [HttpGet]
         [Route("/calculajuros")]
         [Authorize]
-        public async Task<dynamic> CalculaJuros(double valorInicial, int meses)
+        public async Task<string> CalculaJuros(double valorInicial, int meses)
         {
             var result =  await taxCalculationService.CalculateTaxAsync(valorInicial, meses);
 
-            return new 
-            { 
-                result = result.ToString("F2")
-            };
+            return result.ToString("F2");
         }
 
         [HttpGet]
@@ -35,7 +32,7 @@ namespace TaxCalculationAPI.Controllers
         {
             return new
             {
-                URL = ""
+                URL = "https://github.com/leoappio/TaxCalculationAPICamerge"
             };
         }
     }
