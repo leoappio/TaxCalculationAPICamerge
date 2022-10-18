@@ -1,4 +1,4 @@
-﻿using Entity;
+﻿using TaxCalculation.Entity;
 
 namespace TaxCalculation.Repository.Contract
 {

@@ -1,4 +1,4 @@
-﻿namespace Entity
+﻿namespace TaxCalculation.Entity
 {
     public class Tax
     {
