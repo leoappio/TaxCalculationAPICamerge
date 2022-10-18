@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TaxCalculation.Entity\TaxCalculation.Entity.csproj" />
     <ProjectReference Include="..\TaxCalculation.Service\TaxCalculation.Service.csproj" />
   </ItemGroup>
 

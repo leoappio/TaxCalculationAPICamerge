@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaxCalculation.Entity\TaxCalculation.Entity.csproj" />
     <ProjectReference Include="..\TaxCalculation.Repository\TaxCalculation.Repository.csproj" />
   </ItemGroup>
 

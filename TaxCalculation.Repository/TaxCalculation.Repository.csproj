@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Entity\TaxCalculation.Entity.csproj" />
+    <ProjectReference Include="..\TaxCalculation.Entity\TaxCalculation.Entity.csproj" />
   </ItemGroup>
 
 </Project>

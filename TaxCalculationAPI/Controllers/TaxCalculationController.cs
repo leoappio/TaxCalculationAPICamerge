@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaxCalculation.Service.Contract;
 
@@ -16,6 +17,7 @@ namespace TaxCalculationAPI.Controllers
 
         [HttpGet]
         [Route("/calculajuros")]
+        [Authorize]
         public async Task<dynamic> CalculaJuros(double valorInicial, int meses)
         {
             var result =  await taxCalculationService.CalculateTaxAsync(valorInicial, meses);
@@ -28,6 +30,7 @@ namespace TaxCalculationAPI.Controllers
 
         [HttpGet]
         [Route("/showmethecode")]
+        [Authorize]
         public dynamic ShowMeTheCode()
         {
             return new

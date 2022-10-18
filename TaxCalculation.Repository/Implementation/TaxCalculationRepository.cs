@@ -1,7 +1,6 @@
-﻿using Entity;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using System.Configuration;
+using TaxCalculation.Entity;
 using TaxCalculation.Repository.Contract;
 
 namespace TaxCalculation.Repository.Implementation

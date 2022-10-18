@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using TaxCalculation.Entity;
 using TaxCalculation.Repository.Contract;
 using TaxCalculation.Repository.Implementation;
 using TaxCalculation.Service.Contract;
 using TaxCalculation.Service.Implementation;
-using TaxCalculationAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,7 +48,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "LibraryAPI", Version = "v1" });
     var securitySchema = new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: {token}\"",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.Http,
@@ -71,9 +71,11 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddScoped<ITaxCalculationService, TaxCalculationService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITaxCalculationRepository, TaxCalculationRepository>();
 
 var app = builder.Build();
+app.UseAuthentication();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -87,7 +89,6 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseAuthentication();
 
 app.MapControllers();
 
